@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DON TIME</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:black;
+color:white;
+overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+body::before{
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at top left, rgba(0,255,100,0.2), transparent 30%),
+radial-gradient(circle at bottom right, rgba(255,0,0,0.2), transparent 30%);
+z-index:-1;
+animation:bgmove 6s infinite alternate;
+}
+
+@keyframes bgmove{
+from{
+transform:scale(1);
+}
+to{
+transform:scale(1.1);
+}
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo{
+font-size:45px;
+font-weight:900;
+color:#00ff66;
+text-shadow:0 0 20px #00ff66;
+}
+
+nav{
+display:flex;
+gap:20px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:18px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:red;
+text-shadow:0 0 10px red;
+}
+
+.search{
+padding:12px;
+border:none;
+border-radius:30px;
+width:220px;
+outline:none;
+background:#111;
+color:white;
+}
+
+/* HERO */
+
+.hero{
+height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
+url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?q=80&w=1600')
+center/cover;
+}
+
+.hero-content{
+animation:fade 2s ease;
+}
+
+.hero h1{
+font-size:90px;
+font-weight:900;
+color:#00ff66;
+text-shadow:0 0 30px #00ff66;
+}
+
+.hero p{
+margin-top:20px;
+font-size:25px;
+color:#ddd;
+}
+
+.hero button{
+margin-top:30px;
+padding:18px 45px;
+font-size:20px;
+border:none;
+border-radius:50px;
+background:linear-gradient(45deg,red,#00ff66);
+color:white;
+font-weight:bold;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 0 20px red;
+}
+
+.hero button:hover{
+transform:scale(1.1);
+box-shadow:0 0 30px #00ff66;
+}
+
+/* PRODUCTS */
+
+.products{
+padding:80px 20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+border-radius:25px;
+overflow:hidden;
+transition:0.4s;
+border:1px solid rgba(255,255,255,0.1);
+box-shadow:0 0 15px rgba(0,255,100,0.1);
+}
+
+.card:hover{
+transform:translateY(-12px) scale(1.03);
+box-shadow:0 0 25px #00ff66;
+}
+
+.card img{
+width:100%;
+height:280px;
+object-fit:contain;
+background:#111;
+padding:20px;
+}
+
+.card-content{
+padding:25px;
+text-align:center;
+}
+
+.card h2{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.price{
+font-size:30px;
+color:red;
+font-weight:bold;
+margin-bottom:20px;
+}
+
+.card input,
+.card select{
+width:100%;
+padding:14px;
+margin-top:12px;
+border:none;
+border-radius:12px;
+background:#111;
+color:white;
+outline:none;
+}
+
+.buy-btn{
+margin-top:18px;
+width:100%;
+padding:16px;
+border:none;
+border-radius:15px;
+background:linear-gradient(45deg,#00ff66,red);
+color:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+transition:0.4s;
+}
+
+.buy-btn:hover{
+transform:scale(1.05);
+}
+
+.delivery{
+padding:70px 20px;
+text-align:center;
+}
+
+.delivery h1{
+font-size:50px;
+color:#00ff66;
+text-shadow:0 0 15px #00ff66;
+margin-bottom:20px;
+}
+
+footer{
+padding:40px;
+text-align:center;
+background:#050505;
+border-top:1px solid rgba(255,255,255,0.1);
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:18px 25px;
+border-radius:50px;
+font-weight:bold;
+text-decoration:none;
+font-size:20px;
+box-shadow:0 0 20px #25D366;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">DON TIME ⚽</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Shop</a>
+<a href="#">Contact</a>
+</nav>
+
+<input type="text" class="search" placeholder="Search jersey...">
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>DON TIME</h1>
+
+<p>Professional Football Jerseys Store</p>
+
+<button>SHOP NOW</button>
+
+</div>
+
+</section>
+
+<section class="products">
+
+<!-- Barcelona -->
+
+<div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg">
+
+<div class="card-content">
+
+<h2>Barcelona</h2>
+
+<div class="price">150 DH</div>
+
+<input type="text" placeholder="Your Name">
+<input type="tel" placeholder="Phone Number">
+<input type="text" placeholder="Your City">
+
+<select>
+<option>Size S</option>
+<option>Size M</option>
+<option>Size L</option>
+<option>Size XL</option>
+</select>
+
+<input type="text" placeholder="Name & Number On Jersey">
+
+<select>
+<option>Without Printing - 150 DH</option>
+<option>With Name & Number - 220 DH</option>
+</select>
+
+<button class="buy-btn">BUY NOW</button>
+
+</div>
+</div>
+
+<!-- Real Madrid -->
+
+<div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg">
+
+<div class="card-content">
+
+<h2>Real Madrid</h2>
+
+<div class="price">150 DH</div>
+
+<input type="text" placeholder="Your Name">
+<input type="tel" placeholder="Phone Number">
+<input type="text" placeholder="Your City">
+
+<select>
+<option>Size S</option>
+<option>Size M</option>
+<option>Size L</option>
+<option>Size XL</option>
+</select>
+
+<input type="text" placeholder="Name & Number On Jersey">
+
+<select>
+<option>Without Printing - 150 DH</option>
+<option>With Name & Number - 220 DH</option>
+</select>
+
+<button class="buy-btn">BUY NOW</button>
+
+</div>
+</div>
+
+<!-- Manchester City -->
+
+<div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg">
+
+<div class="card-content">
+
+<h2>Manchester City</h2>
+
+<div class="price">150 DH</div>
+
+<input type="text" placeholder="Your Name">
+<input type="tel" placeholder="Phone Number">
+<input type="text" placeholder="Your City">
+
+<select>
+<option>Size S</option>
+<option>Size M</option>
+<option>Size L</option>
+<option>Size XL</option>
+</select>
+
+<input type="text" placeholder="Name & Number On Jersey">
+
+<select>
+<option>Without Printing - 150 DH</option>
+<option>With Name & Number - 220 DH</option>
+</select>
+
+<button class="buy-btn">BUY NOW</button>
+
+</div>
+</div>
+
+<!-- Arsenal -->
+
+<div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg">
+
+<div class="card-content">
+
+<h2>Arsenal</h2>
+
+<div class="price">150 DH</div>
+
+<input type="text" placeholder="Your Name">
+<input type="tel" placeholder="Phone Number">
+<input type="text" placeholder="Your City">
+
+<select>
+<option>Size S</option>
+<option>Size M</option>
+<option>Size L</option>
+<option>Size XL</option>
+</select>
+
+<input type="text" placeholder="Name & Number On Jersey">
+
+<select>
+<option>Without Printing - 150 DH</option>
+<option>With Name & Number - 220 DH</option>
+</select>
+
+<button class="buy-btn">BUY NOW</button>
+
+</div>
+</div>
+
+<!-- PSG -->
+
+<div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg">
+
+<div class="card-content">
+
+<h2>PSG</h2>
+
+<div class="price">150 DH</div>
+
+<input type="text" placeholder="Your Name">
+<input type="tel" placeholder="Phone Number">
+<input type="text" placeholder="Your City">
+
+<select>
+<option>Size S</option>
+<option>Size M</option>
+<option>Size L</option>
+<option>Size XL</option>
+</select>
+
+<input type="text" placeholder="Name & Number On Jersey">
+
+<select>
+<option>Without Printing - 150 DH</option>
+<option>With Name & Number - 220 DH</option>
+</select>
+
+<button class="buy-btn">BUY NOW</button>
+
+</div>
+</div>
+
+<!-- Liverpool -->
+
+<div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg">
+
+<div class="card-content">
+
+<h2>Liverpool</h2>
+
+<div class="price">150 DH</div>
+
+<input type="text" placeholder="Your Name">
+<input type="tel" placeholder="Phone Number">
+<input type="text" placeholder="Your City">
+
+<select>
+<option>Size S</option>
+<option>Size M</option>
+<option>Size L</option>
+<option>Size XL</option>
+</select>
+
+<input type="text" placeholder="Name & Number On Jersey">
+
+<select>
+<option>Without Printing - 150 DH</option>
+<option>With Name & Number - 220 DH</option>
+</select>
+
+<button class="buy-btn">BUY NOW</button>
+
+</div>
+</div>
+
+<!-- Morocco -->
+
+<div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/en/0/04/Morocco_national_football_team_logo.svg">
+
+<div class="card-content">
+
+<h2>Morocco</h2>
+
+<div class="price">150 DH</div>
+
+<input type="text" placeholder="Your Name">
+<input type="tel" placeholder="Phone Number">
+<input type="text" placeholder="Your City">
+
+<select>
+<option>Size S</option>
+<option>Size M</option>
+<option>Size L</option>
+<option>Size XL</option>
+</select>
+
+<input type="text" placeholder="Name & Number On Jersey">
+
+<select>
+<option>Without Printing - 150 DH</option>
+<option>With Name & Number - 220 DH</option>
+</select>
+
+<button class="buy-btn">BUY NOW</button>
+
+</div>
+</div>
+
+<!-- Portugal -->
+
+<div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/en/5/5c/Portuguese_Football_Federation.svg">
+
+<div class="card-content">
+
+<h2>Portugal</h2>
+
+<div class="price">150 DH</div>
+
+<input type="text" placeholder="Your Name">
+<input type="tel" placeholder="Phone Number">
+<input type="text" placeholder="Your City">
+
+<select>
+<option>Size S</option>
+<option>Size M</option>
+<option>Size L</option>
+<option>Size XL</option>
+</select>
+
+<input type="text" placeholder="Name & Number On Jersey">
+
+<select>
+<option>Without Printing - 150 DH</option>
+<option>With Name & Number - 220 DH</option>
+</select>
+
+<button class="buy-btn">BUY NOW</button>
+
+</div>
+</div>
+
+<!-- Brazil -->
+
+<div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/en/0/05/Brazil_national_football_team_logo.svg">
+
+<div class="card-content">
+
+<h2>Brazil</h2>
+
+<div class="price">150 DH</div>
+
+<input type="text" placeholder="Your Name">
+<input type="tel" placeholder="Phone Number">
+<input type="text" placeholder="Your City">
+
+<select>
+<option>Size S</option>
+<option>Size M</option>
+<option>Size L</option>
+<option>Size XL</option>
+</select>
+
+<input type="text" placeholder="Name & Number On Jersey">
+
+<select>
+<option>Without Printing - 150 DH</option>
+<option>With Name & Number - 220 DH</option>
+</select>
+
+<button class="buy-btn">BUY NOW</button>
+
+</div>
+</div>
+
+<!-- Argentina -->
+
+<div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/en/c/c1/Argentina_national_football_team_logo.svg">
+
+<div class="card-content">
+
+<h2>Argentina</h2>
+
+<div class="price">150 DH</div>
+
+<input type="text" placeholder="Your Name">
+<input type="tel" placeholder="Phone Number">
+<input type="text" placeholder="Your City">
+
+<select>
+<option>Size S</option>
+<option>Size M</option>
+<option>Size L</option>
+<option>Size XL</option>
+</select>
+
+<input type="text" placeholder="Name & Number On Jersey">
+
+<select>
+<option>Without Printing - 150 DH</option>
+<option>With Name & Number - 220 DH</option>
+</select>
+
+<button class="buy-btn">BUY NOW</button>
+
+</div>
+</div>
+
+</section>
+
+<section class="delivery">
+
+<h1>🚚 Delivery All Over Morocco</h1>
+
+<p>Payment On Delivery Available</p>
+
+</section>
+
+<footer>
+
+<h2>DON TIME ⚽</h2>
+
+<p>WhatsApp: +212691859471</p>
+
+<p>Instagram: @dontime</p>
+
+</footer>
+
+<a href="https://wa.me/212691859471" class="whatsapp">
+WhatsApp
+</a>
+
+</body>
+  </html>
